@@ -42,7 +42,7 @@ As the designer continues to learn and grow, the website will undergo updates an
 
 For any inquiries, feedback, or to purchase an item, please reach out via direct message:
 
-- **Instagram:** @cali_def
+- **Instagram:** https://www.instagram.com/cali_def?igsh=OGQ5ZDc2ODk2ZA==
 - **Email:** Calidefinition@gmail.com 
 
 Thank you for visiting CaliDef Collectables! Your support and patience are greatly appreciated as we continue to learn and develop this website.
