@@ -1,0 +1,34 @@
+body {
+    background: linear-gradient(to right, #ff8a00, #da1b60); /* Unique background color gradient */
+}
+button {
+    background: linear-gradient(to right, #ff8a00, #da1b60); /* Button background color gradient */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Edge light effect around buttons */
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.display-box {
+    background: rgba(255, 255, 255, 0.2); /* Glassmorphism style box */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* Glassmorphism effect */
+    margin: 10px;
+}
+.large-box {
+    background: rgba(255, 255, 255, 0.2); /* Glassmorphism style box */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* Glassmorphism effect */
+}
+.scroll-container {
+    overflow: auto;
+    max-height: 200px; /* Adjust height as needed */
+}
