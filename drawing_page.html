@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Particle Fountain with Background Effect</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        html,body {
+            overflow:hidden;
+            margin:0;
+            position:relative;
+            height:100%;
+            padding:0;
+            background-color: black; /* Set background color to black */
+        }
+        #area {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        #vanishButton {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 2;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="area"></canvas>
+    <button id="vanishButton">Vanish</button>
+    <script>
+        console.clear();
+         (function() {
+                // Setup document
+                var w = window.innerWidth;
+                var h = window.innerHeight;
+                var hyp = Math.sqrt((w * w) + (h * h)) / 2;
+                var canvas = document.getElementById('area');
+                canvas.width = w; canvas.height = h;
+                var ctx = canvas.getContext("2d");
+
+                // Set origin to the center of the screen
+                var origin = [w / 2, h / 2];
+
+                var getParticle = function() {
+                    return [origin[0], origin[1], Math.random() * 360, Math.random() * 2 + 1];
+                };
+
+                var particles = (function() {
+                    var arr = [], i = 0;
+                    while (i++ < 200) 
+                        arr.push(getParticle());
+                    return arr;
+                })();
+
+                var fountain = function() {
+                    if (particles.length < 1500) 
+                        particles.push(getParticle(), getParticle());
+                };
+
+                var render = function() {
+                    [].forEach.call(particles, function(particle, i) {
+                        // Get new position for particle
+                        particle[0] += particle[3] * Math.cos(particle[2]);
+                        particle[1] += particle[3] * Math.sin(particle[2]);
+
+                        // Get distance from origin 
+                        var diffX = particle[0] - origin[0];
+                        var diffY = particle[1] - origin[1];
+                        var dis = Math.sqrt((diffX * diffX) + (diffY * diffY));
+
+                        // Add twirl at 30% distance from origin
+                        if (dis > hyp * 0.3) 
+                            particle[2] += 0.05;
+
+                        // Fade out at distance
+                        var alpha = 0.5 - (dis / (hyp * 0.5)); // Reduced opacity
+
+                        // Determine particle size
+                        var size = i % 2 == 0 ? 1 : 2;
+
+                        // Draw this particle
+                        ctx.fillStyle = 'rgba(255, 255, 255, ' + alpha + ')';
+                        ctx.fillRect(particle[0], particle[1], size, size);
+                    });
+                };
+
+                (function step() {
+                    requestAnimationFrame(step);
+                    ctx.clearRect(0, 0, w, h);
+                    fountain();
+                    render();
+            })();
+        })();
+
+        // p5.js sketch for background effect
+        let fpsCounter; // Variable to hold the FPS counter
+
+        function setup() {
+            createCanvas(windowWidth, windowHeight);
+            stroke(255); // Set stroke color to white
+            strokeWeight(1); // Set stroke weight to 1
+            noFill(); // No fill for shapes
+            
+            // Initialize the FPS counter
+            fpsCounter = createP();
+            fpsCounter.position(10, 10); // Position the FPS counter at the top left
+            fpsCounter.style('color', '#ff0'); // Set text color to white
+        }
+
+        function draw() {
+            // Draw background effect based on touch movement
+            if (mouseIsPressed) {
+                line(pmouseX, pmouseY, mouseX, mouseY);
+            }
+            
+            // Update the FPS counter
+            fpsCounter.html('FPS: ' + Math.round(frameRate()));
+        }
+
+        // Clear button functionality
+        var vanishButton = document.getElementById('vanishButton');
+        vanishButton.addEventListener('click', function() {
+            vanish();
+        });
+
+        function vanish() {
+            background(0);
+        }
+    </script>
+</body>
+</html>
