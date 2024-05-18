@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micro Cards</title>
+    <style>
+        /* Defining CSS variables in the root */
+        :root {
+            --primary-color: #00FFFF; /* Cyan */
+            --secondary-color: blue;
+            --background-dark: rgba(0, 0, 0, 0); /* Burgundy carbon fiber */
+            --text-color-light: #fff; /* White */
+            --menu-width: 300px; /* Width for menus */
+            --gradient-header: linear-gradient(90deg, #00FFFF, #FF00FF); /* Cyan to Magenta gradient */
+            --box-shadow: 0 20px 40px rgba(9, 9, 9, 9); /* Deeper shadow for depth effect */
+            --box-shadow-active: 0 0 30px rgba(255, 255, 255, 0.7); /* Brighter shadow when tapped */
+            --transition: 0.7s; /* Transition time */
+            --border-radius: 20px; /* Rounded borders */
+            --button-gradient: linear-gradient(90deg, #00FFFF, #FF00FF); /* Stylish button gradient */
+            --reflection: rgba(255, 255, 255, 0.2); /* Reflection color */
+            --gleam: rgba(255, 255, 255, 0.4); /* Gleam color */
+            --neon-glow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #FF00FF, 0 0 40px #FF00FF, 0 0 50px #FF00FF; /* Neon glow effect */
+            --background-texture: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100"><rect width="100" height="100" fill="rgba(128, 0, 0, 0.5)"/><circle cx="50" cy="50" r="40" stroke="%23FF00FF" stroke-width="2" fill="none"/><path d="M 10,90 Q 50,15 90,90" stroke="%2300FFFF" stroke-width="2" fill="none"/><polygon points="50,15 20,80 80,80" stroke="%23FF00FF" stroke-width="2" fill="none"/></svg>');
+        }
+
+        /* General body styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--background-dark);
+            color: var(--text-color-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-image: var(--background-texture);
+            background-size: 200px 200px;
+        }
+
+        /* Header styling */
+        header {
+            width: 80%;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0);
+            backdrop-filter: blur(10px) brightness(0.2);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+            margin-top: 40px;
+            text-shadow: var(--neon-glow);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit;
+            filter: blur(20px);
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: inherit;
+            pointer-events: none;
+        }
+
+        /* Container for all boxes */
+        .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 20px;
+            padding: 20px;
+            width: 100%;
+            justify-content: center;
+            z-index: 5;
+        }
+
+        /* Individual content box styling */
+        .info-box {
+            background: rgba(0, 0, 0, 0); /* Transparent background for glass effect */
+            border-radius: var(--border-radius);
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--box-shadow);
+            transition: transform var(--transition), box-shadow var(--transition);
+            position: relative;
+            backdrop-filter: blur(10px) brightness(1.1);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            z-index: 5;
+            margin: 0 20px;
+        }
+
+        /* Floating effect */
+        .info-box:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-active);
+        }
+
+        /* Long shadow effect on boxes */
+        .info-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom right, transparent, var(--reflection));
+            pointer-events: none;
+        }
+
+        /* Gleaming effect on boxes */
+        .gleam {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            background: linear-gradient(145deg, var(--gleam) 0%, transparent 80%);
+            opacity: 0.5;
+            border-radius: var(--border-radius);
+            pointer-events: none;
+        }
+
+        /* Bioluminescent effect on boxes */
+        .info-box:hover .gleam {
+            opacity: 1;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.8) 0%, transparent 80%);
+        }
+
+        /* Scrollable content area */
+        .content {
+            padding: 15px;
+            height: 80%;
+            overflow-y: auto;
+            font-size: 1em;
+            line-height: 1.5em;
+            color: var(--text-color-light);
+        }
+
+        /* Styling for the buttons */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        .button-container button {
+            background: var(--button-gradient); /* Gradient for the button */
+            color: var(--text-color-light); /* White text */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform var(--transition), box-shadow var(--transition);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+            text-shadow: var(--neon-glow);
+            z-index: 5;
+        }
+
+        /* Gleaming effect on buttons */
+        .button-container button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to right, transparent 20%, var(--gleam) 50%, transparent 80%);
+            transform: rotate(25deg);
+            transition: transform var(--transition);
+        }
+
+        .button-container button:hover::after {
+            transform: rotate(25deg) translate(50%, 50%);
+        }
+
+        .button-container button:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        .button-container button:hover {
+            transform: scale(1.05);
+            box-shadow: var(--box-shadow-active);
+        }
+
+        @media (max-width: 600px) {
+            .box-container {
+                grid-template-columns: 1fr;
+                grid-gap: 20px;
+                padding: 20px;
+            }
+
+            .info-box {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Micro Cards
+    </header>
+    <div class="box-container">
+        <div class="info-box">
+            <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+            </div>
+            <div class="button-container">
+                <button onclick="alert('More Info Here!')">More Info</button>
+            </div>
+            <div class="gleam"></div>
+        </div>
+        <!-- Repeat for each box with unique content as needed -->
+        <div class="info-box">
+            <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+            </div>
+            <div class="button-container">
+                <button onclick="alert('More Info Here!')">More Info</button>
+            </div>
+            <div class="gleam"></div>
+        </div>
+        <div class="info-box">
+            <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+            </div>
+            <div class="button-container">
+                <button onclick="alert('More Info Here!')">More Info</button>
+            </div>
+            <div class="gleam"></div>
+        </div>
+        <div class="info-box">
+            <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+            </div>
+            <div class="button-container">
+                <button onclick="alert('More Info Here!')">More Info</button>
+            </div>
+            <div class="gleam"></div>
+        </div>
+    </div>
+</body>
+</html>
