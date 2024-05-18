@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other GPK.Stuff</title>
+    <style>
+        /* Defining CSS variables in the root */
+        :root {
+            --primary-color: #0ff; /* Neon cyan */
+            --secondary-color: #f0f; /* Neon magenta */
+            --background-dark: #000; /* Pure black */
+            --text-color-light: #fff; /* White */
+            --menu-width: 300px; /* Width for menus */
+            --box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8); /* Deeper shadow for depth effect */
+            --box-shadow-active: 0 0 30px rgba(255, 255, 255, 0.7); /* Brighter shadow when tapped */
+            --transition: 0.3s; /* Transition time */
+            --border-radius: 10px; /* Rounded borders */
+            --button-gradient: linear-gradient(90deg, #0ff, #f0f); /* Stylish button gradient */
+            --reflection: rgba(255, 255, 255, 0.2); /* Reflection color */
+            --gleam: rgba(255, 255, 255, 0.4); /* Gleam color */
+            --neon-glow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #f0f, 0 0 40px #f0f, 0 0 50px #f0f; /* Neon glow effect */
+            --background-animation: linear-gradient(120deg, #0ff, #f0f, #00f);
+        }
+
+        /* General body styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--background-dark);
+            color: var(--text-color-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 10px;
+            padding: 10px;
+            overflow-x: hidden;
+            position: relative;
+            background: linear-gradient(120deg, #100, #200, #150, #100);
+        }
+
+        /* Animated background */
+        body::before {
+            content: 
+            position: absolute;
+            top: 1%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: var(--background-animation);
+            z-index: -2;
+            animation: backgroundShift 10s infinite;
+        }
+
+        @keyframes backgroundShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Swirling, fluttering dust effect */
+        .dust {
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+            animation: swirl 5s linear infinite, sparkle 1.9s infinite alternate;
+            opacity: 0.5;
+        }
+
+        @keyframes swirl {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+                opacity: 0.5;
+            }
+            25% {
+                transform: translate(50%, -100%) rotate(90deg);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translate(0, 50%) rotate(180deg);
+                opacity: 1;
+            }
+            75% {
+                transform: translate(-50%, -100%) rotate(270deg);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translate(-50%, 50%) rotate(360deg);
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes sparkle {
+            0% { 
+               opacity: 0.1, 0.2, 0.3;
+           }   
+             50% {
+                opacity: 0.4, 0.5, 0.6;
+            }
+            10% {
+                opacity: 0.7, 0.8, 0.9;
+            }
+        }
+
+        /* Additional dust particles */
+        .dust:nth-child(2) {
+            down: 5%;
+            animation-delay: 0.5s, 1.5s;
+        }
+
+        .dust:nth-child(3) {
+            down: 10%;
+            animation-delay: 1s, 2s;
+        }
+
+        .dust:nth-child(4) {
+            down: 15%;
+            animation-delay: 1.5s, 2.5s;
+        }
+
+        .dust:nth-child(5) {
+            down: 20%;
+            animation-delay: 2s, 3s;
+        }
+
+        .dust:nth-child(6) {
+            down: 25%;
+            animation-delay: 2.5s, 3.5s;
+        }
+
+        .dust:nth-child(7) {
+            down: 30%;
+            animation-delay: 0.5s, 1s;
+        }
+
+        .dust:nth-child(8) {
+            down: 35%;
+            animation-delay: 0.5s, 1.5s;
+        }
+
+        .dust:nth-child(9) {
+            right: 40%;
+            animation-delay: 1.5s, 0.9s;
+        }
+
+        .dust:nth-child(10) {
+            down: 45%;
+            animation-delay: 1s, 0.4s;
+        }
+     
+        dust:nth-child(11) {
+            down: 50%;
+            animation-delay: 1.5s, 1.9s;
+        }
+  
+        dust:nth-child(12) {
+            down: 55%;
+            animation-delay: 1s, 1.4s;
+        }
+   
+        dust:nth-child(13) {
+            down: 60%;
+            animation-delay: 1.5s, 1.9s;
+        }
+   
+       dust:nth-child(14) {
+            down: 65%;
+            animation-delay: 1.2s, 1.7s;
+        }
+        
+        dust:nth-child(15) {
+            down: 70%;
+            animation-delay: 1.5s, 1.9s;
+        }
+        
+        dust:nth-child(16) {
+            down: 75%;
+            animation-delay: 1.6s, 1.9s;
+        }
+        
+        dust:nth-child(17) {
+            down: 80%;
+            animation-delay: 1.5s, 1.9s;
+        }
+        
+        dust:nth-child(17) {
+            down: 85%;
+            animation-delay: 1.4s, 1.9s;
+        }
+        
+        dust:nth-child(18) {
+            down: 90%;
+            animation-delay: 1.5s, 1.9s;
+        }
+        
+        dust:nth-child(19) {
+            down: 95%;
+            animation-delay: 1.0s, 1.4s;
+        }
+        
+        dust:nth-child(20) {
+            down: 100%;
+            animation-delay: 1.5s, 1.9s;
+        }
+        /* Header styling */
+        header {
+            width: 80%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px) brightness(1.2);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+            margin-top: 40px;
+            text-shadow: var(--neon-glow);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit;
+            filter: blur(20px);
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: inherit;
+            pointer-events: none;
+        }
+
+        /* Container for all boxes */
+        .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 20px;
+            padding: 20px;
+            width: 100%;
+            justify-content: center;
+            z-index: 5;
+        }
+
+        /* Individual content box styling */
+        .info-box {
+            background: rgba(255, 255, 255, 0.1); /* Transparent background for glass effect */
+            border-radius: var(--border-radius);
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--box-shadow);
+            transition: transform var(--transition), box-shadow var(--transition);
+            position: relative;
+            backdrop-filter: blur(10px) brightness(1.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            z-index: 5;
+            margin: 0 20px;
+        }
+
+        /* Floating effect */
+        .info-box:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-active);
+        }
+
+        /* Long shadow effect on boxes */
+        .info-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom right, transparent, var(--reflection
+));
+            pointer-events: none;
+        }
+
+        /* Gleaming effect on boxes */
+        .gleam {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            background: linear-gradient(145deg, var(--gleam) 0%, transparent 80%);
+            opacity: 0.5;
+            border-radius: var(--border-radius);
+            pointer-events: none;
+        }
+
+        /* Bioluminescent effect on boxes */
+        .info-box:hover .gleam {
+            opacity: 1;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.8) 0%, transparent 80%);
+        }
+
+        /* Scrollable content area */
+        .content {
+            padding: 15px;
+            height: 80%;
+            overflow-y: auto;
+            font-size: 1em;
+            line-height: 1.5em;
+            color: var(--text-color-light);
+        }
+
+        /* Styling for the buttons */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        .button-container button {
+            background: var(--button-gradient); /* Gradient for the button */
+            color: var(--text-color-light); /* White text */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform var(--transition), box-shadow var(--transition);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+            text-shadow: var(--neon-glow);
+            z-index: 5;
+        }
+
+        /* Gleaming effect on buttons */
+        .button-container button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to right, transparent 20%, var(--gleam) 50%, transparent 80%);
+            transform: rotate(25deg);
+            transition: transform var(--transition);
+        }
+
+        .button-container button:hover::after {
+            transform: rotate(25deg) translate(50%, 50%);
+        }
+
+        .button-container button:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        .button-container button:hover {
+            transform: scale(1.05);
+            box-shadow: var(--box-shadow-active);
+        }
+
+        /* Footer styling */
+        footer {
+            width: 100%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px) brightness(1.2);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+            margin-top: 40px;
+            text-shadow: var(--neon-glow);
+        }
+
+        footer .footer-button-container {
+            margin-top: 10px;
+        }
+
+        footer .footer-button-container button {
+            background: var(--button-gradient); /* Gradient for the button */
+            color: var(--text-color-light); /* White text */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform var(--transition), box-shadow var(--transition);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+            text-shadow: var(--neon-glow);
+        }
+
+        footer .footer-button-container button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to right, transparent 20%, var(--gleam) 50%, transparent 80%);
+            transform: rotate(25deg);
+            transition: transform var(--transition);
+        }
+
+        footer .footer-button-container button:hover::after {
+            transform: rotate(25deg) translate(50%, 50%);
+        }
+
+        footer .footer-button-container button:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        footer .footer-button-container button:hover {
+            transform: scale(1.05);
+            box-shadow: var(--box-shadow-active);
+        }
+
+        @media (max-width: 600px) {
+            .box-container {
+                grid-template-columns: 1fr;
+                grid-gap: 20px;
+                padding: 20px;
+            }
+
+            .info-box {
+                margin: 0;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        Other GPK Stuff
+    </header>
+    <div class="box-container">
+        <div class="info-box">
+            <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+            </div>
+            <div class="button-container">
+                <button onclick="alert('More Info Here!')">More Info</button>
+            </div>
+            <div class="gleam"></div>
+        </div>
+        <!-- Repeat for each box with unique content as needed -->
+        <div class="info-box">
+            <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+            </div>
+            <div class="button-container">
+                <button onclick="alert('More Info Here!')">More Info</button>
+            </div>
+            <div class="gleam"></div>
+        </div>
+        <div class="info-box">
+            <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+            </div>
+            <div class="button-container">
+                <button onclick="alert('More Info Here!')">More Info</button>
+            </div>
+            <div class="gleam"></div>
+        </div>
+        <div class="info-box">
+            <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+            </div>
+            <div class="button-container">
+                <button onclick="alert('More Info Here!')">More Info</button>
+            </div>
+            <div class="gleam"></div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-button-container">
+            <button onclick="location.href='index.html'">Back to Main Page</button>
+        </div>
+    </footer>
+
+    <!-- Dust effect elements -->
+    <div class="dust"></div>
+    <div class="dust"></div>
+    <div class="dust"></div>
+    <div class="dust"></div>
+    <div class="dust"></div>
+    <div class="dust"></div>
+    <div class="dust"></div>
+    <div class="dust"></div>
+    <div class="dust"></div>
+    <div class="dust"></div>
+    <div class="dust"></div>
+    <div class="dust"></div>
+    <div class="dust"></div>
+    <div class="dust"></div>
+    <div class="dust"></div>
+    <div class="dust"></div>
+    <div class="dust"></div>
+    <div class="dust"></div>
+    <div class="dust"></div>
+    <div class="dust"></div>
+
+    <!-- JavaScript for complex dust effect -->
+    <script>
+        const canvas = document.createElement('canvas');
+        document.body.appendChild(canvas);
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const context = canvas.getContext('2d');
+
+        let particles = [];
+        const colors = ['rgba(255,255,255,0.8)', 'rgba(255,255,255,0.6)', 'rgba(255,255,255,0.4)'];
+
+        function createParticles() {
+            for (let i = 0; i < 100; i++) {
+                const size = Math.random() * 5 + 1;
+                const x = Math.random() * canvas.width;
+                const y = Math.random() * canvas.height;
+                const speedX = (Math.random() * 0.5 - 0.25);
+                const speedY = (Math.random() * 0.5 - 0.25);
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                particles.push(new Particle(x, y, size, speedX, speedY, color));
+            }
+        }
+
+        function animate() {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach((particle, index) => {
+                particle.update();
+                particle.draw(context);
+                if (particle.size <= 0.2) {
+                    particles.splice(index, 1);
+                    particles.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 5 + 1, (Math.random() * 0.5 - 0.25), (Math.random() * 0.5 - 0.25), colors[Math.floor(Math.random() * colors.length)]));
+                }
+            });
+            requestAnimationFrame(animate);
+        }
+    
+        createParticles();
+        animate();
+    <script src="script.js"></script>
+</body>
+</html>
