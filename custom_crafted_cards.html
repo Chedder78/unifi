@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Original Series</title>
+    <style>
+        :root {
+            --primary-color: #0ff; /* Neon cyan */
+            --secondary-color: #111; /* Dark gray */
+            --background-color: #000; /* Black background */
+            --text-color: #fff; /* White text */
+            --accent-color: #0f0; /* Neon green */
+            --highlight-color: #ffcc00; /* Dark yellow */
+            --border-radius: 10px; /* Rounded corners */
+            --transition: 0.3s; /* Transition time */
+            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Box shadow */
+            --box-shadow-active: 0 0 15px rgba(0, 255, 255, 0.7); /* Active shadow */
+            --carbon-fiber: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAACddGYaAAAABmJLR0QA/wD/AP+gvaeTAAAADElEQVQI12P4//8/AwAI/AL+AWbK+wAAAABJRU5ErkJggg=='); /* Carbon fiber pattern */
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            background-image: var(--carbon-fiber);
+        }
+
+        header {
+            width: 100%;
+            padding: 20px;
+            background: var(--secondary-color);
+            color: var(--text-color);
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: bold;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            z-index: 10;
+        }
+
+        .background-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: linear-gradient(145deg, var(--highlight-color), var(--accent-color));
+        }
+
+        .sphere {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.5), var(--accent-color) 70%);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--accent-color), 0 0 40px var(--accent-color);
+            animation: float infinite ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-50px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .sphere::before {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: black;
+            border-radius: 50%;
+            animation: spot 5s infinite ease-in-out;
+        }
+
+        @keyframes spot {
+            0%, 100% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1);
+            }
+        }
+
+        .aura {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--accent-color) 10%, transparent 70%);
+            border-radius: 50%;
+            animation: aura-pulse 5s infinite ease-in-out;
+        }
+
+        @keyframes aura-pulse {
+            0%, 100% {
+                transform: scale(0.9);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+        }
+
+        .container {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px 0;
+            z-index: 5;
+        }
+
+        .card {
+            background: var(--secondary-color);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform var(--transition), box-shadow var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-active);
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .card-content {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .button {
+            background: var(--primary-color);
+            color: var(--text-color);
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: var(--border-radius);
+            transition: background var(--transition), transform var(--transition);
+            box-shadow: var(--box-shadow);
+        }
+
+        .button:hover {
+            background: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        footer {
+            width: 100%;
+            padding: 20px;
+            background: var(--secondary-color);
+            color: var(--text-color);
+            text-align: center;
+            font-size: 1em;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            z-index: 10;
+        }
+
+        .dust-ray {
+            position: absolute;
+            width: 3px;
+            height: 50px;
+            background: black;
+            opacity: 0.6;
+            animation: dust 4s infinite ease-in-out;
+        }
+
+        @keyframes dust {
+            0% {
+                transform: scaleY(1);
+                opacity: 0;
+            }
+            50% {
+                transform: scaleY(2);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scaleY(3);
+                opacity: 0;
+            }
+        }
+
+        .galaxy {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 70%);
+            animation: moveGalaxy 30s linear infinite;
+        }
+
+        @keyframes moveGalaxy {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 1000px 1000px;
+            }
+        }
+
+        .gleam-effect {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to right, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%);
+            transform: rotate(45deg);
+            transition: transform 1s ease-in-out;
+        }
+
+        .card:hover .gleam-effect,
+        .button:hover .gleam-effect {
+            transform: rotate(45deg) translateX(50%);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Original Series
+    </header>
+
+    <div class="background-elements">
+        <div class="galaxy"></div>
+        <div class="sphere" style="top: 20%; left: 30%;">
+            <div class="aura"></div>
+        </div>
+        <div class="sphere" style="top: 50%; left: 70%;">
+            <div class="aura"></div>
+        </div>
+        <div class="sphere" style="top: 80%; left: 40%;">
+            <div class="aura"></div>
+        </div>
+        <div class="dust-ray" style="top: 10%; left: 25%;"></div>
+        <div class="dust-ray" style="top: 40%; left: 55%;"></div>
+        <div class="dust-ray" style="top: 70%; left: 35%;"></div>
+        <div class="dust-ray" style="top: 20%; left: 75%;"></div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-title">Episode 1</div>
+            <div class="card-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+            <div class="button-container">
+                <button class="button">More Info
+                    <div class="gleam-effect"></div>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">Episode 2</div>
+            <div class="card-content">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+            <div class="button-container">
+                <button class="button">More Info
+                    <div class="gleam-effect"></div>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">Episode 3</div>
+            <div class="card-content">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</div>
+            <div class="button-container">
+                <button class="button">More Info
+                    <div class="gleam-effect"></div>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">Episode 4</div>
+            <div class="card-content">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</div>
+            <div class="button-container">
+                <button class="button">More Info
+                    <div class="gleam-effect"></div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-button-container">
+            <button class="button" onclick="location.href='index.html'">Back to Main Page
+                <div class="gleam-effect"></div>
+            </button>
+        </div>
+    </footer>
+
+    <!-- JavaScript for additional background animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dustRays = document.querySelectorAll('.dust-ray');
+
+            dustRays.forEach(el => {
+                animateDustRay(el);
+            });
+
+            function animateDustRay(element) {
+                const duration = Math.random() * 3 + 2;
+                const delay = Math.random() * 2;
+                const size = Math.random() * 2 + 1;
+
+                element.style.transition = `transform ${duration}s ease-in-out ${delay}s, opacity ${duration}s ease-in-out ${delay}s`;
+                element.style.transform = `scaleY(${size})`;
+                element.style.opacity = Math.random() * 0.5 + 0.5;
+
+                setTimeout(() => animateDustRay(element), (duration + delay) * 1000);
+            }
+        });
+    </script>
+</body>
+</html>
