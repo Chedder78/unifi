@@ -2,148 +2,321 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modern Themed Sets</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary-color: #ff007f; /* Neon pink */
+            --secondary-color: #001f3f; /* Dark blue */
+            --background-color: #000; /* Black background */
+            --text-color: #fff; /* White text */
+            --accent-color: #1f8ef1; /* Neon blue */
+            --highlight-color: #ffbf00; /* Bright yellow */
+            --border-radius: 15px; /* Rounded corners */
+            --transition: 0.5s; /* Transition time */
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); /* Box shadow */
+            --box-shadow-active: 0 0 25px rgba(255, 0, 127, 0.8); /* Active shadow */
+            --carbon-fiber: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAACddGYaAAAABmJLR0QA/wD/AP+gvaeTAAAADElEQVQI12P4//8/AwAI/AL+AWbK+wAAAABJRU5ErkJggg=='); /* Carbon fiber pattern */
+            --glass-blur: blur(10px);
+            --glass-opacity: 0.2;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            background-image: var(--carbon-fiber);
+        }
+
+        header {
+            width: 100%;
+            padding: 20px;
+            background: rgba(255, 255, 255, var(--glass-opacity));
+            color: var(--text-color);
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: bold;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            backdrop-filter: var(--glass-blur);
+            z-index: 10;
+        }
+
+        .background-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: linear-gradient(145deg, var(--secondary-color), var(--background-color));
+        }
+
+        .hexagon {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, var(--glass-opacity));
+            clip-path: polygon(50% 0%, 90% 25%, 90% 75%, 50% 100%, 10% 75%, 10% 25%);
+            box-shadow: 0 0 30px var(--accent-color), 0 0 60px var(--accent-color);
+            animation: float infinite ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: var(--glass-blur);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-30px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px 0;
+            z-index: 5;
+            perspective: 1000px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, var(--glass-opacity));
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: var(--glass-blur);
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: var(--box-shadow-active);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .card-content {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .button {
+            background: linear-gradient(145deg, var(--primary-color), var(--highlight-color));
+            color: var(--text-color);
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: var(--border-radius);
+            transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: var(--glass-blur);
+        }
+
+        .button:hover {
+            background: linear-gradient(145deg, var(--accent-color), var(--highlight-color));
+            transform: scale(1.05);
+            box-shadow: var(--box-shadow-active);
+        }
+
+        footer {
+            width: 100%;
+            padding: 20px;
+            background: rgba(255, 255, 255, var(--glass-opacity));
+            color: var(--text-color);
+            text-align: center;
+            font-size: 1em;
+            border-radius: 0 0 var(--border-radius) var (--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            backdrop-filter: var(--glass-blur);
+            z-index: 10;
+        }
+
+        .particle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: var(--highlight-color);
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: floatParticles 10s infinite ease-in-out;
+        }
+
+        @keyframes floatParticles {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(-50px) translateX(50px);
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0.8;
+            }
+        }
+
+        .atomic-element {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            fill: rgba(255, 255, 255, 0.1);
+            opacity: 0.5;
+            animation: float infinite ease-in-out;
+        }
+
+        .atomic-element:hover {
+            fill: var(--highlight-color);
+            opacity: 0.8;
+            transition: fill 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-30px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .gleam-effect {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to right, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%);
+            transform: rotate(45deg);
+            transition: transform 1s ease-in-out;
+        }
+
+        .card:hover .gleam-effect,
+        .button:hover .gleam-effect {
+            transform: rotate(45deg) translateX(50%);
+        }
+    </style>
 </head>
-    <body>
-        <!-- portfolio-section start -->
-     alt="portfolio image">
-                            <div class="hover">
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-7.png"><i
-                                        class="fas fa-search"></i></a>
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-7.png"><i
-                                        class="fas fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid-item research analysis">
-                        <div class="posrt-thumb">
-                            <img src="assets/images/portfolio-8.png" alt="portfolio image">
-                            <div class="hover">
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-8.png"><i
-                                        class="fas fa-search"></i></a>
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-8.png"><i
-                                        class="fas fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid-item marketing analysis">
-                        <div class="posrt-thumb">
-                            <img src="assets/images/portfolio-9.png" alt="portfolio image">
-                            <div class="hover">
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-9.png"><i
-                                        class="fas fa-search"></i></a>
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-9.png"><i
-                                        class="fas fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid-item desigen research">
-                        <div class="posrt-thumb">
-                            <img src="assets/images/portfolio-10.png" alt="portfolio image">
-                            <div class="hover">
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-10.png"><i
-                                        class="fas fa-search"></i></a>
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-10.png"><i
-                                        class="fas fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid-item marketing analysis">
-                        <div class="posrt-thumb">
-                            <img src="assets/images/portfolio-11.png" alt="portfolio image">
-                            <div class="hover">
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-11.png"><i
-                                        class="fas fa-search"></i></a>
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-11.png"><i
-                                        class="fas fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid-item desigen research">
-                        <div class="posrt-thumb">
-                            <img src="assets/images/portfolio-12.png" alt="portfolio image">
-                            <div class="hover">
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-11.png"><i
-                                        class="fas fa-search"></i></a>
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-11.png"><i
-                                        class="fas fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid-item desigen research">
-                        <div class="posrt-thumb">
-                            <img src="assets/images/portfolio-13.png" alt="portfolio image">
-                            <div class="hover">
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-12.png"><i
-                                        class="fas fa-search"></i></a>
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-12.png"><i
-                                        class="fas fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid-item desigen research">
-                        <div class="posrt-thumb">
-                            <img src="assets/images/portfolio-14.png" alt="portfolio image">
-                            <div class="hover">
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-13.png"><i
-                                        class="fas fa-search"></i></a>
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-13.png"><i
-                                        class="fas fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid-item desigen research">
-                        <div class="posrt-thumb">
-                            <img src="assets/images/portfolio-15.png" alt="portfolio image">
-                            <div class="hover">
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-14.png"><i
-                                        class="fas fa-search"></i></a>
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-14.png"><i
-                                        class="fas fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid-item desigen research">
-                        <div class="posrt-thumb">
-                            <img src="assets/images/portfolio-16.png" alt="portfolio image">
-                            <div class="hover">
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-15.png"><i
-                                        class="fas fa-search"></i></a>
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-15.png"><i
-                                        class="fas fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid-item desigen research">
-                        <div class="posrt-thumb">
-                            <img src="assets/images/portfolio-17.png" alt="portfolio image">
-                            <div class="hover">
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-16.png"><i
-                                        class="fas fa-search"></i></a>
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-16.png"><i
-                                        class="fas fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid-item desigen research">
-                        <div class="posrt-thumb">
-                            <img src="assets/images/portfolio-18.png" alt="portfolio image">
-                            <div class="hover">
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-17.png"><i
-                                        class="fas fa-search"></i></a>
-                                <a class="image-popup" title="portfolio image" href="assets/images/portfolio-17.png"><i
-                                        class="fas fa-link"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<body>
+    <header>
+        Modern Themed Sets
+    </header>
+
+    <div class="background-elements">
+        <div class="hexagon" style="top: 20%; left: 30%;"></div>
+        <div class="hexagon" style="top: 50%; left: 70%;"></div>
+        <div class="hexagon" style="top: 80%; left: 40%;"></div>
+        <div class="hexagon" style="top: 40%; left: 15%;"></div>
+        <div class="particle" style="top: 10%; left: 25%;"></div>
+        <div class="particle" style="top: 30%; left: 55%;"></div>
+        <div class="particle" style="top: 60%; left: 35%;"></div>
+        <div class="particle" style="top: 80%; left: 75%;"></div>
+        <!-- Atomic Element Icons -->
+        <svg class="atomic-element" style="top: 20%; left: 50%;">
+            <circle cx="25" cy="25" r="20"></circle>
+            <circle cx="25" cy="25" r="15"></circle>
+            <circle cx="25" cy="25" r="10"></circle>
+        </svg>
+        <svg class="atomic-element" style="top: 70%; left: 20%;">
+            <circle cx="25" cy="25" r="20"></circle>
+            <circle cx="25" cy="25" r="15"></circle>
+            <circle cx="25" cy="25" r="10"></circle>
+        </svg>
+        <svg class="atomic-element" style="top: 40%; left: 80%;">
+            <circle cx="25" cy="25" r="20"></circle>
+            <circle cx="25" cy="25" r="15"></circle>
+            <circle cx="25" cy="25" r="10"></circle>
+        </svg>
+        <svg class="atomic-element" style="top: 10%; left: 10%;">
+            <circle cx="25" cy="25" r="20"></circle>
+            <circle cx="25" cy="25" r="15"></circle>
+            <circle cx="25" cy="25" r="10"></circle>
+        </svg>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-title">Set 1</div>
+            <div class="card-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+            <div class="button-container">
+                <button class="button">More Info
+                    <div class="gleam-effect"></div>
+                </button>
             </div>
-            <div class="row justify-content-center mt-60">
-                <a href="gallery.html" class="cmn-btn">Load More</a>
+        </div>
+        <div class="card">
+            <div class="card-title">Set 2</div>
+            <div class="card-content">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+            <div class="button-container">
+                <button class="button">More Info
+                    <div class="gleam-effect"></div>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">Set 3</div>
+            <div class="card-content">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</div>
+            <div class="button-container">
+                <button class="button">More Info
+                    <div class="gleam-effect"></div>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">Set 4</div>
+            <div class="card-content">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</div>
+            <div class="button-container">
+                <button class="button">More Info
+                    <div class="gleam-effect"></div>
+                </button>
             </div>
         </div>
     </div>
-    <!-- portfolio-section end -->
-    </body>
+
+    <footer>
+        <div class="footer-button-container">
+            <button class="button" onclick="location.href='index.html'">Back to Main Page
+                <div class="gleam-effect"></div>
+            </button>
+        </div>
+    </footer>
+</body>
 </html>
