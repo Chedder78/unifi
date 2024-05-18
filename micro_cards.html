@@ -1,253 +1,365 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-   <link stylesheet ref="style.css"> 
-
     <title>Micro Cards</title>
-
-    </head>
-
-    
-
-   <body>
-
     <style>
-
         /* Defining CSS variables in the root */
-
         :root {
-
             --primary-color: #00FFFF; /* Cyan */
-
-            --background-dark: #111; /* Dark gray */
-
+            --secondary-color: #FF00FF; /* Magenta */
+            --background-dark: #3b0a0a; /* Dark red */
             --text-color-light: #fff; /* White */
-
-            --menu-width: 300px; /* Width for menus, can be used if needed */
-
-            --gradient-primary: linear-gradient(to bottom right, #000033, #330033); /* Deep blue/purple gradient */
-
+            --menu-width: 300px; /* Width for menus */
+            --gradient-header: linear-gradient(90deg, #00FFFF, #FF00FF); /* Cyan to Magenta gradient */
+            --box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); /* Deeper shadow for depth effect */
+            --box-shadow-active: 0 0 30px rgba(255, 255, 255, 0.7); /* Brighter shadow when tapped */
+            --transition: 0.3s; /* Transition time */
+            --border-radius: 20px; /* Rounded borders */
+            --button-gradient: linear-gradient(90deg, #00FFFF, #FF00FF); /* Stylish button gradient */
+            --reflection: rgba(255, 255, 255, 0.2); /* Reflection color */
+            --gleam: rgba(255, 255, 255, 0.4); /* Gleam color */
+            --neon-glow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #FF00FF, 0 0 40px #FF00FF, 0 0 50px #FF00FF; /* Neon glow effect */
         }
-
-
 
         /* General body styling */
-
         body {
-
-            font-family: Arial, sans-serif;
-
-            background: var(--background-dark); /* Using dark background from variables */
-
-            color: var(--text-color-light); /* Ensuring text is light-colored */
-
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--background-dark);
+            color: var(--text-color-light);
             display: flex;
-
-            justify-content: center;
-
+            flex-direction: column;
             align-items: center;
-
-            height: 100vh;
-
+            min-height: 100vh;
             margin: 0;
-
             padding: 0;
-
             overflow-x: hidden;
-
+            position: relative;
         }
 
+        /* Animated background */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--background-dark);
+            z-index: -2;
+            animation: neonDots 5s infinite;
+        }
 
+        @keyframes neonDots {
+            0%, 100% {
+                background: radial-gradient(circle, rgba(255, 0, 255, 0.1) 10%, transparent 10%),
+                            radial-gradient(circle, rgba(0, 255, 255, 0.1) 10%, transparent 10%);
+                background-size: 100px 100px, 200px 200px;
+                background-position: 0 0, 100px 100px;
+            }
+            50% {
+                background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 10%, transparent 10%),
+                            radial-gradient(circle, rgba(255, 0, 255, 0.1) 10%, transparent 10%);
+                background-size: 200px 200px, 100px 100px;
+                background-position: 100px 100px, 0 0;
+            }
+        }
+
+        /* Header styling */
+        header {
+            width: 80%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px) brightness(1.2);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+            margin-top: 40px;
+            text-shadow: var(--neon-glow);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit;
+            filter: blur(20px);
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: inherit;
+            pointer-events: none;
+        }
 
         /* Container for all boxes */
-
         .box-container {
-
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 20px;
-
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 20px;
             padding: 20px;
-
+            width: 100%;
+            justify-content: center;
+            z-index: 5;
         }
-
-
 
         /* Individual content box styling */
-
         .info-box {
-
-            background: var(--gradient-primary); /* Using gradient for box background */
-
-            border: 2px solid var(--primary-color); /* Cyan border */
-
-            border-radius: 8px;
-
-            width: var(--menu-width); /* Width set by variable */
-
+            background: rgba(255, 255, 255, 0.15); /* Transparent background for glass effect */
+            border-radius: var(--border-radius);
             height: 300px;
-
-            overflow: auto;
-
             display: flex;
-
             flex-direction: column;
-
             justify-content: space-between;
-
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-
+            box-shadow: var(--box-shadow);
+            transition: transform var(--transition), box-shadow var(--transition);
+            position: relative;
+            backdrop-filter: blur(10px) brightness(1.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            z-index: 5;
+            margin: 0 20px;
         }
 
+        /* Floating effect */
+        .info-box:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-active);
+        }
 
+        /* Long shadow effect on boxes */
+        .info-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom right, transparent, var(--reflection));
+            pointer-events: none;
+        }
+
+        /* Gleaming effect on boxes */
+        .gleam {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            background: linear-gradient(145deg, var(--gleam) 0%, transparent 80%);
+            opacity: 0.5;
+            border-radius: var(--border-radius);
+            pointer-events: none;
+        }
+
+        /* Bioluminescent effect on boxes */
+        .info-box:hover .gleam {
+            opacity: 1;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.8) 0%, transparent 80%);
+        }
 
         /* Scrollable content area */
-
         .content {
-
             padding: 15px;
-
             height: 80%;
-
             overflow-y: auto;
-
+            font-size: 1em;
+            line-height: 1.5em;
+            color: var(--text-color-light);
         }
 
+        /* Styling for the buttons */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
 
-
-        /* Styling for the buttons at the bottom of each box */
-
-        button {
-
-            background-color: var(--primary-color); /* Cyan */
-
-            color: var(--text-color-light); /* White */
-
+        .button-container button {
+            background: var(--button-gradient); /* Gradient for the button */
+            color: var(--text-color-light); /* White text */
             border: none;
-
             padding: 10px 20px;
-
             font-size: 16px;
-
             cursor: pointer;
-
-            width: 100%;
-
-            transition: background-color 0.3s;
-
+            transition: transform var(--transition), box-shadow var(--transition);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+            text-shadow: var(--neon-glow);
+            z-index: 5;
         }
 
-            button:focus {
+        /* Gleaming effect on buttons */
+        .button-container button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to right, transparent 20%, var(--gleam) 50%, transparent 80%);
+            transform: rotate(25deg);
+            transition: transform var(--transition);
+        }
 
-    outline: 2px solid var(--primary-color);
+        .button-container button:hover::after {
+            transform: rotate(25deg) translate(50%, 50%);
+        }
 
-    outline-offset: 2px;
+        .button-container button:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
 
-}        
+        .button-container button:hover {
+            transform: scale(1.05);
+            box-shadow: var(--box-shadow-active);
+        }
 
-        
+        /* Footer styling */
+        footer {
+            width: 100%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px) brightness(1.2);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+            margin-top: 40px;
+            text-shadow: var(--neon-glow);
+        }
 
-        /* Hover effect for buttons */
+        footer .footer-button-container {
+            margin-top: 10px;
+        }
 
-        button:hover {
+        footer .footer-button-container button {
+            background: var(--button-gradient); /* Gradient for the button */
+            color: var(--text-color-light); /* White text */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform var(--transition), box-shadow var(--transition);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+            text-shadow: var(--neon-glow);
+        }
 
-            background-color: #008B8B; /* Darker shade of cyan for hover */
+        footer .footer-button-container button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to right, transparent 20%, var(--gleam) 50%, transparent 80%);
+            transform: rotate(25deg);
+            transition: transform var(--transition);
+        }
 
+        footer .footer-button-container button:hover::after {
+            transform: rotate(25deg) translate(50%, 50%);
+        }
+
+        footer .footer-button-container button:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        footer .footer-button-container button:hover {
+            transform: scale(1.05);
+            box-shadow: var(--box-shadow-active);
         }
 
         @media (max-width: 600px) {
+            .box-container {
+                grid-template-columns: 1fr;
+                grid-gap: 20px;
+                padding: 20px;
+            }
 
-    .box-container {
-
-        flex-direction: column;
-
-        align-items: center;
-
-    }
-
-
-
-    .info-box {
-
-        width: 90%; /* Makes each box take almost the full width of the screen on small devices */
-
-    }
-
-}
-
-
-
-    
-
+            .info-box {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Micro Cards
+    </header>
     <div class="box-container">
-
         <div class="info-box">
-
             <div class="content">
-
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
             </div>
-
-            <button onclick="alert('More Info Here!')">More Info</button>
-
+            <div class="button-container">
+                <button onclick="alert('More Info Here!')">More Info</button>
+            </div>
+            <div class="gleam"></div>
         </div>
-
         <!-- Repeat for each box with unique content as needed -->
-
         <div class="info-box">
-
             <div class="content">
-
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
             </div>
-
-            <button onclick="alert('More Info Here!')">More Info</button>
-
+            <div class="button-container">
+                <button onclick="alert('More Info Here!')">More Info</button>
+            </div>
+            <div class="gleam"></div>
         </div>
-
         <div class="info-box">
-
             <div class="content">
-
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
             </div>
-
-            <button onclick="alert('More Info Here!')">More Info</button>
-
+            <div class="button-container">
+                <button onclick="alert('More Info Here!')">More Info</button>
+            </div>
+            <div class="gleam"></div>
         </div>
-
         <div class="info-box">
-
             <div class="content">
-
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
             </div>
-
-            <button onclick="alert('More Info Here!')">More Info</button>
-
+            <div class="button-container">
+                <button onclick="alert('More Info Here!')">More Info</button>
+            </div>
+            <div class="gleam"></div>
         </div>
-
     </div>
-
-
-
-        <script src="script.js" defer></script>
-
-</style>
-
+    <footer>
+        <div class="footer-button-container">
+            <button onclick="location.href='index.html'">Back to Main Page</button>
+        </div>
+    </footer>
 </body>
-
 </html>
