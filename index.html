@@ -1,273 +1,239 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>CaliDef: Bootloot Empire</title>
-
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
 
+        header {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .glass-pane {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .art-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            width: 80%;
+        }
+
+        .art-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            text-align: center;
+            width: calc(50% - 40px);
+            max-width: 300px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .art-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .art-box button {
+            background: #ff007f;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1em;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 4px 30px rgba(255, 0, 127, 0.5);
+        }
+
+        .art-box button:hover {
+            background: #ffbf00;
+            transform: scale(1.05);
+        }
+
+        .art-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .info-bar {
+            display: none;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .info-bar.active {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
-
     <header>
-
         <img src="https://ideogram.ai/api/images/direct/tjLeFGMSSKq7BAtRQchAiw.png" alt="Header Image">
-
     </header>
 
-    <!-- Remaining content remains unchanged -->
-
-        <div></div>
-
-        <div></div>
-
-        <div></div>
-
-<div class="glass-pane">
-
-    <div class="glass-content">
-
-        Welcome to the Bootloot Empire.
-
+    <div class="glass-pane">
+        <div class="glass-content">
+            Welcome to the Bootloot Empire.
+        </div>
     </div>
-
-</div>
-
-<center>
 
     <div class="art-container">
+        <div class="art-box" onclick="showInfo(1)">
+            <img src="https://ideogram.ai/api/images/direct/MMZdN3cITq2fPCDXxaOXYQ.png" alt="Artwork 1">
+            <p>Sets available from Original Series 1 to Original Series 16</p>
+            <button onclick="location.href='original_series.html'">Original Series Sets</button>
+        </div>
 
-    <div class="art-box" onclick="showInfo(1)">
+        <div class="art-box" onclick="showInfo(2)">
+            <img src="https://ideogram.ai/api/images/direct/pK0uBrIIQ96_ZdQNbu_8tg.png" alt="Artwork 2">
+            <button onclick="location.href='modern_themed_sets.html'">Modern Themed Sets</button>
+        </div>
 
-    <img src="https://ideogram.ai/api/images/direct/MMZdN3cITq2fPCDXxaOXYQ.png" alt="Artwork 5">
+        <div class="art-box" onclick="showInfo(3)">
+            <img src="https://ideogram.ai/api/images/direct/_4GeFpiTQzWpPHZEyvjUwA.png" alt="Artwork 3">
+            <button onclick="location.href='custom_crafted_cards.html'">Custom Crafted Cards</button>
+        </div>
 
-    <p>Sets available from Original Series 1 to Original Series 16</p>
+        <div class="art-box" onclick="showInfo(4)">
+            <img src="https://ideogram.ai/api/images/direct/OfgoLMGQTPuIp9wtE4mAbQ.png" alt="Artwork 4">
+            <button onclick="location.href='micro_cards.html'">Micro Cards</button>
+        </div>
 
-    <button onclick="location.href='original_series.html'">Original Series Sets</button>
+        <div class="art-box" onclick="showInfo(5)">
+            <img src="https://ideogram.ai/api/images/direct/irdEsiusQwmSeZsffcn1Tg.png" alt="Artwork 5">
+            <button onclick="location.href='other_gpk_stuff.html'">Other GPK Stuff</button>
+        </div>
 
+        <div class="art-box" onclick="showInfo(6)">
+            <img src="https://ideogram.ai/api/images/direct/_S1WCBxvSQG6k6XKxwtO5g.png" alt="Artwork 6">
+            <button onclick="location.href='social_networks.html'">Social Network Portal</button>
+        </div>
     </div>
 
+    <div class="info-bar" data-series="1">
+        <p>Series Number: 1</p>
+        <p>Price: $100</p>
+        <p>Quantity: 10</p>
+        <p>Condition: New</p>
+        <button onclick="hideInfo(1)">Close</button>
     </div>
 
-    <div class="art-box" onclick="showInfo(2)">
-
-    <img src="https://ideogram.ai/api/images/direct/pK0uBrIIQ96_ZdQNbu_8tg.png" alt="Artwork 2">
-
-    <button onclick="location.href='modern_themed_sets.html'">Modern Themed Sets</button>
-
+    <div class="info-bar" data-series="2">
+        <p>Series Number: 2</p>
+        <p>Price: $120</p>
+        <p>Quantity: 8</p>
+        <p>Condition: Like New</p>
+        <button onclick="hideInfo(2)">Close</button>
     </div>
 
+    <div class="info-bar" data-series="3">
+        <p>Series Number: 3</p>
+        <p>Price: $90</p>
+        <p>Quantity: 5</p>
+        <p>Condition: Used</p>
+        <button onclick="hideInfo(3)">Close</button>
     </div>
 
-    <div class="art-box" onclick="showInfo(3)">
-
-    <img src="https://ideogram.ai/api/images/direct/_4GeFpiTQzWpPHZEyvjUwA.png" alt="Artwork 3">     
-
-    <button onclick="location.href='custom_crafted_cards.html'">Custom Crafted Cards</button>
-
+    <div class="info-bar" data-series="4">
+        <p>Series Number: 4</p>
+        <p>Price: $110</p>
+        <p>Quantity: 3</p>
+        <p>Condition: Mint</p>
+        <button onclick="hideInfo(4)">Close</button>
     </div>
 
+    <div class="info-bar" data-series="5">
+        <p>Series Number: 5</p>
+        <p>Price: $130</p>
+        <p>Quantity: 4</p>
+        <p>Condition: Like New</p>
+        <button onclick="hideInfo(5)">Close</button>
     </div>
 
-    <div class="art-box" onclick="showInfo(4)">
-
-    <img src="https://ideogram.ai/api/images/direct/OfgoLMGQTPuIp9wtE4mAbQ.png" alt="Artwork 4">
-
-    <button onclick="location.href='micro_cards.html'">Micro Cards</button>
-
+    <div class="info-bar" data-series="6">
+        <p>Series Number: 6</p>
+        <p>Price: $110</p>
+        <p>Quantity: 7</p>
+        <p>Condition: Excellent</p>
+        <button onclick="hideInfo(6)">Close</button>
     </div>
-
-    <div class="art-box" onclick="showInfo(5)">
-
-    <img src="https://ideogram.ai/api/images/direct/irdEsiusQwmSeZsffcn1Tg.png" alt="Artwork 5">
-
-    <button onclick="location.href='other_gpk_stuff.html'">Other GPK Stuff</button>
-
-    </div>
-
-    <div class="art-box" onclick="showInfo(6)">    
-
-    <img src="https://ideogram.ai/api/images/direct/_S1WCBxvSQG6k6XKxwtO5g.png" alt="Artwork 6">
-
-    <button onclick="location.href='social_networks.html'">Social Network Portal</button>
-
-    </div>
-
-   <!-- <div class="art-box" onclick="showInfo(7)">
-
-    <img src="artwork7.jpg" alt="Artwork 7">
-
-    </div>
-
-    <div class="art-box" onclick="showInfo(8)">
-
-    <img src="artwork8.jpg" alt="Artwork 8">
-
-    </div>
-
-    </div>
-
-</center>
-
-<!-- Info bars for each artwork with dynamic content -->
-
-<div class="info-bar" data-series="1">
-
-    <p>Series Number: 1</p>
-
-    <p>Price: $100</p>
-
-    <p>Quantity: 10</p>
-
-    <p>Condition: New</p>
-
-    <button onclick="hideInfo(1)">Close</button>
-
-</div>
-
-<div class="info-bar" data-series="2">
-
-    <p>Series Number: 2</p>
-
-    <p>Price: $120</p>
-
-    <p>Quantity: 8</p>
-
-    <p>Condition: Like New</p>
-
-    <button onclick="hideInfo(2)">Close</button>
-
-</div>
-
-<div class="info-bar" data-series="3">
-
-    <p>Series Number: 3</p>
-
-    <p>Price: $90</p>
-
-    <p>Quantity: 5</p>
-
-    <p>Condition: Used</p>
-
-    <button onclick="hideInfo(3)">Close</button>
-
-</div>
-
-<div class="info-bar" data-series="4">
-
-    <p>Series Number: 4</p>
-
-    <p>Price: $110</p>
-
-    <p>Quantity: 3</p>
-
-    <p>Condition: Mint</p>
-
-    <button onclick="hideInfo(4)">Close</button>
-
-</div>
-
-<div class="info-bar" data-series="5">
-
-    <p>Series Number: 5</p>
-
-    <p>Price: $130</p>
-
-    <p>Quantity: 4</p>
-
-    <p>Condition: Like New</p>
-
-    <button onclick="hideInfo(5)">Close</button>
-
-</div>
-
-<div class="info-bar" data-series="6">
-
-    <p>Series Number: 6</p>
-
-    <p>Price: $110</p>
-
-    <p>Quantity: 7</p>
-
-    <p>Condition: Excellent</p>
-
-    <button onclick="hideInfo(6)">Close</button>
-
-</div>
-
-<div class="info-bar" data-series="7">
-
-    <p>Series Number: 7</p>
-
-    <p>Price: $95</p>
-
-    <p>Quantity: 3</p>
-
-    <p>Condition: New</p>
-
-    <button onclick="hideInfo(7)">Close</button>
-
-</div>
-
-<div class="info-bar" data-series="8">
-
-    <p>Series Number: 8</p>
-
-    <p>Price: $120</p>
-
-    <p>Quantity: 6</p>
-
-    <p>Condition: Excellent</p>
-
-    <button onclick="hideInfo(8)">Close</button>
-
-</div>
-
-</div>
-
-
-
-
-
-<script src="script.js"></script>
-
-
-
-        <!-- Service worker registration code -->
 
     <script>
-
-        if ('serviceWorker' in navigator) {
-
-            window.addEventListener('load', function() {
-
-                navigator.serviceWorker.register('/GPK/service-worker.js')
-
-                    .then(function(registration) {
-
-                        console.log('Service Worker registered with scope:', registration.scope);
-
-                    })
-
-                    .catch(function(err) {
-
-                        console.log('Service Worker registration failed:', err);
-
-                    });
-
+        function showInfo(series) {
+            const infoBars = document.querySelectorAll('.info-bar');
+            infoBars.forEach(bar => {
+                if (bar.dataset.series == series) {
+                    bar.classList.add('active');
+                } else {
+                    bar.classList.remove('active');
+                }
             });
-
         }
 
+        function hideInfo(series) {
+            const infoBar = document.querySelector(`.info-bar[data-series="${series}"]`);
+            infoBar.classList.remove('active');
+        }
     </script>
 
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/GPK/service-worker.js')
+                    .then(function (registration) {
+                        console.log('Service Worker registered with scope:', registration.scope);
+                    })
+                    .catch(function (err) {
+                        console.log('Service Worker registration failed:', err);
+                    });
+            });
+        }
+    </script>
 </body>
 
 </html>
