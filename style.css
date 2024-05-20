@@ -10,8 +10,8 @@
     --gradient-color-2: #493240;
     --gradient-color-3: #ff6600;
     --gradient-color-4: #ffcc00;
-    --animation-duration: 0.6s;
-    --animation-delay: 0.2s;
+    --animation-duration: 1s;
+    --animation-transform: 0.4s;
 }
 
 /* General Styles */
@@ -101,31 +101,7 @@ button {
     100% { transform: translate(-50%, -50%); }
 }
 
-/* Loading Animation */
-.loading {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
 
-.spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid rgba(255, 255, 255, 0.3);
-    border-top: 5px solid #fff;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
 
 /* Header Styles */
 header {
@@ -135,7 +111,7 @@ header {
     text-align: center;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
-    position: fixed;
+    position: flex;
     width: 100%;
     top: 0;
     z-index: 1000;
