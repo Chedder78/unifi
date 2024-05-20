@@ -7,7 +7,6 @@
     <title>CaliDef: Bootloot Empire</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Your CSS styles */
         body {
             font-family: Arial, sans-serif;
             background-color: #000;
@@ -108,100 +107,10 @@
         .info-bar.active {
             display: block;
         }
-
-        /* Additional styles */
-        .stars {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: transparent;
-            background-image: radial-gradient(var(--text-color), black);
-            animation: moveStars 50s linear infinite;
-        }
-
-        @keyframes moveStars {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-50%, -50%); }
-        }
-
-        .loading {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            border-top: 5px solid #fff;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        #backToTop {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, var(--gradient-color-3), var(--gradient-color-4));
-            color: var(--text-color);
-            border: none;
-            padding: 10px;
-            font-size: 1.5em;
-            border-radius: 50%;
-            cursor: pointer;
-            display: none;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        #backToTop:hover,
-        #backToTop:focus {
-            background-color: var(--button-hover-color);
-            transform: scale(1.1);
-            outline: none;
-        }
-
-        .dark-mode {
-            background-color: var(--background-color);
-            color: var(--text-color);
-        }
-
-        .dark-mode header,
-        .dark-mode footer {
-            background-color: #333;
-        }
-
-        .dark-mode .cta-button,
-        .dark-mode .toggle-switch,
-        .dark-mode .contact form button,
-        .dark-mode #backToTop {
-            background-color: #666;
-        }
-
-        .dark-mode .services .card,
-        .dark-mode .blog article {
-            background: #444;
-        }
     </style>
 </head>
 
 <body>
-    <div class="stars"></div>
-    <div class="loading">
-        <div class="spinner"></div>
-    </div>
-
     <header>
         <img src="https://ideogram.ai/api/images/direct/tjLeFGMSSKq7BAtRQchAiw.png" alt="Header Image">
     </header>
@@ -227,43 +136,39 @@
 
         <div class="art-box" onclick="showInfo(3)">
             <img src="https://ideogram.ai/api/images/direct/_4GeFpiTQzWpPHZEyvjUwA.png" alt="Artwork 3">
-            <p>Custom Sapphire Refractors for those who can't find the Colors they need to complete their rainbows or refractor collection</p>
+            <p>Custom Sapphire Refractors for those who can't find the Colors they need to complete their rainbows or refeactor collection</p>
             <button onclick="location.href='custom_crafted_cards.html'">Custom Crafted Refractors</button>
         </div>
 
         <div class="art-box" onclick="showInfo(4)">
             <img src="https://ideogram.ai/api/images/direct/OfgoLMGQTPuIp9wtE4mAbQ.png" alt="Artwork 4">
-            <p>Original Series cards shrunk down to just one inch tall. Every series modernized into a smaller version of a Blaster Box. Excellent high-quality crafted to rival anything similar in size. Every single card from the Original Series from Series 1 to Series 16 is available in our uniquely custom crafted blaster boxes. Every box contains 5 packs with 5 cards per pack. 25 cards total.</p>
+            <p>Original Series cards shrunk down to just one inch tall. Every series modernized into a smaller verison of a Blaster Box. Excellent high-quality crafted to rival anything similar in size
+             Every single cards from the Original Series from Series 1 to Series 16 is availble in our uniquely custom crafted blaster boxes. every box containss 5 packs with 5 cards per pack. 25 cards total.</p>
             <button onclick="location.href='micro_cards.html'">Micro Cards</button>
         </div>
 
         <div class="art-box" onclick="showInfo(5)">
             <img src="https://ideogram.ai/api/images/direct/irdEsiusQwmSeZsffcn1Tg.png" alt="Artwork 5">
-            <p>Other items available, such as posters, tins, hot sauces, games, trashy treasures with original boxes and their cards, sealed officially licensed micro toys, and more!</p>
+            <p>Other items available, such as posters, tins, hot sauces, games, trashy treasures with original boxes and their cards, sealed officially licensed micro toys, and more!,</p>
             <button onclick="location.href='other_gpk_stuff.html'">Other GPK Stuff</button>
         </div>
 
         <div class="art-box" onclick="showInfo(6)">
             <img src="https://raw.githubusercontent.com/Chedder78/Unifi/main/dynamic_background.png" alt="Artwork 6">
-            <p>Check out our social media profiles where you can find images of past creations as well as current projects and custom work. We have also generated over 100K AI images and over 150 AI videos and counting!</p>
+            <p>Check out our social media profiles where you can find images of past creations as well as current projects and custom work. we have also generated over 100K AI images and over 150 AI videos and counting!</p>
             <button onclick="location.href='social_network.html'">Social Network Portal</button>
         </div>
     
        <div class="art-box" onclick="showInfo(7)">
-            <img src="https://ideogram.ai/api/images/direct/nsXP_biOQ_iGQPqwMudjSA.png" alt="Artwork 7">
+            <img src="https://ideogram.ai/api/images/direct/nsXP_biOQ_iGQPqwMudjSA.png" alt="Artwork 6">
            <p>Have a moment and check out the code below that allows you to draw and erase as much as you want using only your finger! Have Fun</p>
             <button onclick="location.href='drawing_page.html'">Draw Page</button>
         </div>
+        
+   
     </div>
 
-    <div class="info-bar" data-series="1">More information about Original Series Sets...</div>
-    <div class="info-bar" data-series="2">More information about Modern Themed Sets...</div>
-    <div class="info-bar" data-series="3">More information about Custom Crafted Refractors...</div>
-    <div class="info-bar" data-series="4">More information about Micro Cards...</div>
-    <div class="info-bar" data-series="5">More information about Other GPK Stuff...</div>
-    <div class="info-bar" data-series="6">More information about our Social Network Portal...</div>
-    <div class="info-bar" data-series="7">More information about the Drawing Page...</div>
-
+    
     <script>
         function showInfo(series) {
             const infoBars = document.querySelectorAll('.info-bar');
@@ -280,92 +185,9 @@
             const infoBar = document.querySelector(`.info-bar[data-series="${series}"]`);
             infoBar.classList.remove('active');
         }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // Smooth Scroll
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-
-            // Dark Mode Toggle
-            const toggleSwitch = document.getElementById('darkModeToggle');
-            if (toggleSwitch) {
-                toggleSwitch.addEventListener('click', () => {
-                    document.body.classList.toggle('dark-mode');
-                });
-            }
-
-            // Loading Animation
-            window.addEventListener('load', () => {
-                document.querySelector('.loading').style.display = 'none';
-            });
-
-            
-            // Scroll Animations
-            const scrollElements = document.querySelectorAll('[data-scroll]');
-            const elementInView = (el, dividend = 1) => {
-                const elementTop = el.getBoundingClientRect().top;
-                return (
-                    elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
-                );
-            };
-
-            const displayScrollElement = (element) => {
-                element.classList.add('scrolled');
-            };
-
-            const hideScrollElement = (element) => {
-                element.classList.remove('scrolled');
-            };
-
-            const handleScrollAnimation = () => {
-                scrollElements.forEach((el) => {
-                    if (elementInView(el, 1.25)) {
-                        displayScrollElement(el);
-                    } else {
-                        hideScrollElement(el);
-                    }
-                });
-            };
-
-            window.addEventListener('scroll', () => {
-                handleScrollAnimation();
-            });
-
-            // Initial check to show elements already in view
-            handleScrollAnimation();
-
-            // Search Functionality
-            const searchInput = document.getElementById('search');
-            if (searchInput) {
-                searchInput.addEventListener('input', () => {
-                    const query = searchInput.value.toLowerCase();
-                    document.querySelectorAll('.card').forEach(card => {
-                        const text = card.textContent.toLowerCase();
-                        card.style.display = text.includes(query) ? 'block' : 'none';
-                    });
-                });
-            }
-        });
-
-        // Function to open the corresponding large box
-        function openLargeBox(boxId) {
-            var box = document.getElementById('largeBox' + boxId);
-            box.style.display = 'block'; // Show the large box
-            // Add functionality to close the box when clicked outside
-            window.onclick = function(event) {
-                if (event.target == box) {
-                    box.style.display = 'none'; // Hide the box
-                }
-            }
-        }
     </script>
 
+    <script src="script.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function () {
