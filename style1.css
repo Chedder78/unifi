@@ -78,7 +78,7 @@ button {
     z-index: -1;
     background: transparent;
     background-image: radial-gradient(var(--text-color), black);
-    animation: moveStars 50s linear infinite;
+    animation: moveStars 5s linear infinite;
 }
 
 @keyframes moveStars {
