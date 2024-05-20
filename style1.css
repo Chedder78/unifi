@@ -10,8 +10,8 @@
     --gradient-color-2: #493240;
     --gradient-color-3: #ff6600;
     --gradient-color-4: #ffcc00;
-    --animation-duration: 0.6s;
-    --animation-delay: 0.2s;
+    --animation-duration: 0.4s;
+    --animation-delay: 0.1s;
 }
 
 /* General Styles */
@@ -71,26 +71,6 @@ button {
     text-align: center;
 }
 
-.stars {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: transparent;
-    background-image: radial-gradient(var(--text-color), black);
-    animation: moveStars 30s linear infinite;
-}
-
-@keyframes moveStars {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(-50%, -50%); }
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
 /* Header Styles */
 header {
     background: linear-gradient(135deg, var(--gradient-color-1), var(--gradient-color-2));
@@ -138,7 +118,7 @@ nav ul li a {
     color: var(--text-color);
     text-decoration: none;
     font-size: 1.2em;
-    transition: color 0.7s;
+    transition: color 0.3s;
 }
 
 nav ul li a:hover,
@@ -154,32 +134,12 @@ nav ul li a:focus {
     cursor: pointer;
     font-size: 1.2em;
     margin-top: 10px;
-    transition: background-color 0.6s, transform 0.6s;
+    transition: background-color 0.3s, transform 0.3s;
     border-radius: 25px;
 }
 
 .cta-button:hover,
 .cta-button:focus {
-    background-color: var(--button-hover-color);
-    transform: scale(1.1);
-    outline: none;
-}
-
-/* Dark Mode Toggle */
-.toggle-switch {
-    background: linear-gradient(135deg, var(--gradient-color-3), var(--gradient-color-4));
-    color: var(--text-color);
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2em;
-    margin-top: 10px;
-    transition: background-color 0.8s, transform 0.8s;
-    border-radius: 25px;
-}
-
-.toggle-switch:hover,
-.toggle-switch:focus {
     background-color: var(--button-hover-color);
     transform: scale(1.1);
     outline: none;
