@@ -7,18 +7,18 @@
     
     <style>
         :root {
-            --primary-color: #ff007f; /* Neon pink */
-            --secondary-color: #001f3f; /* Dark blue */
+            --primary-color: #FF5F1F; /* Neon pink */
+            --secondary-color: #87CEEB; /* Dark blue */
             --background-color: #000; /* Black background */
             --text-color: #fff; /* White text */
-            --accent-color: #1f8ef1; /* Neon blue */
-            --highlight-color: #ffbf00; /* Bright yellow */
+            --accent-color: #8ef18e; /* Neon blue */
+            --highlight-color: #ffbfbb; /* Bright yellow */
             --border-radius: 15px; /* Rounded corners */
             --transition: 0.5s; /* Transition time */
             --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); /* Box shadow */
             --box-shadow-active: 0 0 25px rgba(255, 0, 127, 0.8); /* Active shadow */
             --carbon-fiber: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAACddGYaAAAABmJLR0QA/wD/AP+gvaeTAAAADElEQVQI12P4//8/AwAI/AL+AWbK+wAAAABJRU5ErkJggg=='); /* Carbon fiber pattern */
-            --glass-blur: blur(10px);
+            --glass-blur: blur(15px);
             --glass-opacity: 0.2;
         }
 
@@ -226,13 +226,13 @@
             width: 200%;
             height: 200%;
             background: linear-gradient(to right, transparent 20%, rgba(255, 255, 255, 0.5) 50%, transparent 80%);
-            transform: rotate(45deg);
+            transform: rotate(360deg);
             transition: transform 1s ease-in-out;
         }
 
         .card:hover .gleam-effect,
         .button:hover .gleam-effect {
-            transform: rotate(45deg) translateX(50%);
+            transform: rotate(360deg) translateX(50%);
         }
     </style>
 </head>
