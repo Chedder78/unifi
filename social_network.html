@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<title>Social Network Portal</title>
+    <title>Social Network Portal</title>
     <style>
         /* Defining CSS variables in the root */
         :root {
@@ -27,7 +27,7 @@
 
         /* General body styling */
         body {
-            font-family: 'lobster', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Lobster', Tahoma, Geneva, Verdana, sans-serif;
             background: black;
             color: dark blue;
             display: flex;
@@ -45,8 +45,8 @@
         header {
             width: 80%;
             padding: 20px;
-            background: rgba(0, 0, 0, 0);
-            backdrop-filter: blur(10px) brightness(0.2);
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px) brightness(0.8);
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
             text-align: center;
@@ -71,54 +71,100 @@
             background: inherit;
             filter: blur(20px);
             opacity: 0.6;
-            
-            }
-     .social-media-icons {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    background-color: #333;
-}
+        }
 
-.social-media-icons a {
-    color: #fff;
-    margin: 0 10px;
-    font-size: 24px;
-    text-decoration: none;
-    transition: color 0.3s;
-}
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+        }
 
-.social-media-icons a:hover {
-    color: #ddd;
-}
+        .art-platform-icons, .social-media-icons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            background-color: rgba(51, 51, 51, 0.8);
+            margin: 20px 0;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            width: 100%;
+        }
+
+        .art-platform-icons a, .social-media-icons a {
+            color: #fff;
+            margin: 10px 20px;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .art-platform-icons a:hover, .social-media-icons a:hover {
+            color: #ddd;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px) brightness(0.8);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        footer p {
+            text-align: center;
+            color: #fff;
+            margin: 0;
         }
     </style>
 </head>
 <body>
-    <h1 text-color: white>Social Media Portal</h1>
     <header>
-     Use this portal to travel across the web to visit our creative AI Videos, AI Art, and social media platforms! 
+        Social Media Portal
+        <p>Use this portal to travel across the web to visit our creative AI Videos, AI Art, and social media platforms!</p>
     </header>
-<footer>
-    <div class="social-media-icons">
-        <a href="https://www.facebook.com/yourpage" target="_blank" class="facebook">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://www.instagram.com/yourpage" target="_blank" class="instagram">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.youtube.com/yourpage" target="_blank" class="youtube">
-            <i class="fab fa-youtube"></i>
-        </a>
-        <a href="https://www.tiktok.com/@yourpage" target="_blank" class="tiktok">
-            <i class="fab fa-tiktok"></i>
-        </a>
-    </div>
-</footer>
-            </div>
+
+    <div class="content">
+        <div class="art-platform-icons">
+            <a href="https://www.kaiber.ai" target="_blank">
+                <i class="fas fa-brush"></i> Kaiber.ai
+            </a>
+            <a href="https://www.leonardo.ai" target="_blank">
+                <i class="fas fa-palette"></i> Leonardo.ai
+            </a>
+            <a href="https://creator.nightcafe.studio" target="_blank">
+                <i class="fas fa-moon"></i> Night Cafe
+            </a>
+            <a href="https://www.wombo.art" target="_blank">
+                <i class="fas fa-star"></i> Wombo.art
+            </a>
         </div>
+
+        <footer>
+            <div class="social-media-icons">
+                <a href="https://www.facebook.com/yourpage" target="_blank" class="facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/yourpage" target="_blank" class="instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/yourpage" target="_blank" class="youtube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.tiktok.com/@yourpage" target="_blank" class="tiktok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+            <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+        </footer>
     </div>
+
     <script src="https://kit.fontawesome.com/b732c3e809.js" crossorigin="anonymous"></script>
 </body>
 </html>
-            
