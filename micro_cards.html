@@ -48,7 +48,30 @@
             height: 100%;
             background: var(--background-dark);
             z-index: -2;
-            animation: neonDots 5s infinite;
+        /* Base Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('background-image.jpg');
+    background-size: 50% 50%, cover;
+    background-repeat: no-repeat;
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(0, 0, 0, 0.6); /* Add transparency to the background */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Other styles remain the same */
+
         }
 
         @keyframes neonDots {
