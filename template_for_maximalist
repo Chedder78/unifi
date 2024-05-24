@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Maximalist Webpage</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-color: #fff;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            background-color: #ffcc00; /* Change this color to match your theme */
+            padding: 50px 0;
+        }
+
+        .xxl-title h1 {
+            font-size: 4em; /* Adjust the size as needed */
+            color: #000; /* Change the text color */
+        }
+
+        /* Navigation Styles */
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px; /* Adjust spacing between links */
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000; /* Change link color */
+            font-size: 1.2em; /* Adjust link size */
+        }
+
+        /* Button Styles */
+        .gigantic-button {
+            background-color: #ff0000; /* Change button color */
+            color: #fff; /* Change text color */
+            padding: 20px 40px; /* Adjust padding */
+            border: none;
+            font-size: 1.5em; /* Adjust font size */
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        /* Toggle Switch Styles */
+        .toggle-switch {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        /* Loop Scrolling Styles */
+        .loop-scrolling {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        /* Bento Box Styles */
+        .bentobox {
+            display: inline-block;
+            width: 300px; /* Adjust width */
+            height: 300px; /* Adjust height */
+            margin: 20px;
+            padding: 20px;
+            background-color: #f0f0f0; /* Change background color */
+            border: 2px solid #ccc; /* Change border color */
+            text-align: center;
+            white-space: normal;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #ffcc00; /* Change footer background color */
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .xxl-footer h2 {
+            font-size: 3em; /* Adjust footer title size */
+            margin: 0;
+        }
+
+        /* Dark Theme Styles */
+        .dark-theme {
+            background-color: #000; /* Change background color for dark theme */
+            color: #fff; /* Change text color for dark theme */
+        }
+
+        .dark-theme header,
+        .dark-theme footer {
+            background-color: #333; /* Change header and footer color for dark theme */
+            color: #fff; /* Change text color for dark theme */
+        }
+
+        .dark-theme .gigantic-button {
+            background-color: #666; /* Change button color for dark theme */
+        }
+
+        .dark-theme .bentobox {
+            background-color: #444; /* Change background color for bento boxes in dark theme */
+            border-color: #666; /* Change border color for bento boxes in dark theme */
+        }
+    </style>
+</head>
+<body>
+    <header class="xxl-title">
+        <!-- Main Title -->
+        <h1>Welcome to the Maximalist Experience</h1>
+        <nav>
+            <ul>
+                <!-- Navigation Links -->
+                <li><a href="#heritage-revivalism">Heritage Revivalism</a></li>
+                <li><a href="#80s-excess">'80s Excess</a></li>
+                <li><a href="#brand-worldbuilding">Brand Worldbuilding</a></li>
+                <li><a href="#ai-tools">AI Tools</a></li>
+                <li><a href="#dial-up-design">Dial-Up Design</a></li>
+                <li><a href="#retrofuture-femme">Retrofuture Femme</a></li>
+                <li><a href="#gen-z-speak">Gen Z Speak</a></li>
+            </ul>
+        </nav>
+        <!-- Gigantic Button -->
+        <button class="gigantic-button">Explore Now</button>
+        <!-- Toggle Switch for Theme Change -->
+        <button class="toggle-switch">Toggle Theme</button>
+    </header>
+    
+    <main class="loop-scrolling">
+        <!-- Sections for Different Styles -->
+        <section id="heritage-revivalism" class="bentobox">
+            <h2>Heritage Revivalism</h2>
+            <p>Exploring the blend of past and present in modern design.</p>
+        </section>
+        
+        <section id="80s-excess" class="bentobox">
+            <h2>'80s Excess</h2>
+            <p>Bright colors, bold patterns, and over-the-top aesthetics.</p>
+        </section>
+        
+        <section id="brand-worldbuilding" class="bentobox">
+            <h2>Brand Worldbuilding</h2>
+            <p>Creating immersive brand experiences through design.</p>
+        </section>
+        
+        <section id="ai-tools" class="bentobox">
+            <h2>AI Tools</h2>
+            <p>Leveraging AI to enhance creative workflows.</p>
+        </section>
+        
+        <section id="dial-up-design" class="bentobox">
+            <h2>Dial-Up Design</h2>
+            <p>Nostalgic throwback to early internet aesthetics.</p>
+        </section>
+        
+        <section id="retrofuture-femme" class="bentobox">
+            <h2>Retrofuture Femme</h2>
+            <p>Futuristic yet vintage designs with a feminine touch.</p>
+        </section>
+        
+        <section id="gen-z-speak" class="bentobox">
+            <h2>Gen Z Brand Speak</h2>
+            <p>Engaging the younger generation with modern lingo and design.</p>
+        </section>
+    </main>
+
+    <footer class="xxl-footer">
+        <h2>Stay Connected</h2>
+        <p>&copy; 2024 Maximalist Dynamic Webpage</p>
+    </footer>
+
+    <script>
+        // Add event listener for the toggle switch
+        document.querySelector('.toggle-switch').addEventListener('click', () => {
+            // Toggle the dark theme class
+            document.body.classList.toggle('dark-theme');
+        });
+    </script>
+</body>
+</html>
