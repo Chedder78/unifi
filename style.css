@@ -16,6 +16,10 @@
 
 /* General Styles */
 body {
+    @font-face {
+  font-family: '';
+  src: url('path-to-your-font-file.ttf') format('truetype');
+    }
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
