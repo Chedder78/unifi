@@ -15,12 +15,12 @@
 }
 
 /* General Styles */
-body {
+
     @font-face {
-  font-family: '';
-  src: url('path-to-your-font-file.ttf') format('truetype');
+  font-family: 'Dark Roast';
+  src: url('Dark Roast.ttf') format('truetype');
     }
-    font-family: 'Roboto', sans-serif;
+  body {  font-family: 'Dark Roast', sans-serif;
     margin: 0;
     padding: 0;
     background: linear-gradient(135deg, var(--background-color) 0%, var(--gradient-color-1) 100%);
