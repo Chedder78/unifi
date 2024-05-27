@@ -26,6 +26,14 @@
     background: linear-gradient(135deg, var(--background-color) 0%, var(--gradient-color-1) 100%);
     color: var(--text-color);
     position: relative;
+        #myBackgroundVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
 }
 
 .container {
