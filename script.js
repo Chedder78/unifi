@@ -97,20 +97,36 @@ function openLargeBox(itemId) {
         modalContent.appendChild(img);
     });
     
-    // Display the modal
-    var modal = document.getElementById('myModal');
-    modal.style.display = 'block';
+   document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.querySelector('.overlay');
+    const itemDetails = document.querySelector('.item-details');
+    const closeBtn = document.querySelector('.close-btn');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
     
-    // Close the modal when the close button is clicked
-    var span = document.getElementsByClassName('close')[0];
-    span.onclick = function() {
-        modal.style.display = 'none';
-    };
-    
-    // Close the modal when the user clicks outside of it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    };
-}
+    // Open item details
+    function openItemDetails() {
+        overlay.style.display = 'block';
+        itemDetails.style.display = 'block';
+    }
+
+    // Close item details
+    function closeItemDetails() {
+        overlay.style.display = 'none';
+        itemDetails.style.display = 'none';
+    }
+
+    // Attach event listeners
+    closeBtn.addEventListener('click', closeItemDetails);
+    overlay.addEventListener('click', closeItemDetails);
+    prevBtn.addEventListener('click', function() {
+        document.querySelector('.slider').scrollBy(-300, 0);
+    });
+    nextBtn.addEventListener('click', function() {
+        document.querySelector('.slider').scrollBy(300, 0);
+    });
+
+    // Open item details when the page loads (for testing)
+    openItemDetails();
+});
+ 
