@@ -83,3 +83,34 @@ function updateDots() {
     }
     dots[currentIndex].classList.add('active');
 }
+function openLargeBox(itemId) {
+    // Placeholder for actual photos and descriptions
+    var photos = ['photo1.jpg', 'photo2.jpg', 'photo3.jpg', 'photo4.jpg', 'photo5.jpg', 'photo6.jpg', 'photo7.jpg', 'photo8.jpg', 'photo9.jpg', 'photo10.jpg', 'photo11.jpg', 'photo12.jpg'];
+    
+    // Create the modal content
+    var modalContent = document.querySelector('.modal-content');
+    modalContent.innerHTML = '';
+    
+    photos.forEach(function(photo) {
+        var img = document.createElement('img');
+        img.src = photo;
+        modalContent.appendChild(img);
+    });
+    
+    // Display the modal
+    var modal = document.getElementById('myModal');
+    modal.style.display = 'block';
+    
+    // Close the modal when the close button is clicked
+    var span = document.getElementsByClassName('close')[0];
+    span.onclick = function() {
+        modal.style.display = 'none';
+    };
+    
+    // Close the modal when the user clicks outside of it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
+}
