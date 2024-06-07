@@ -6,8 +6,8 @@ Welcome to the Bootloot Empire, an e-commerce website selling collectibles, incl
 
 - Responsive design using HTML, CSS, and JavaScript.
 - Custom fonts for unique typography.
-- Glass pane effect for a modern look.
-- Artwork display with information and buttons for different series and items.
+- testing several different effect for a modern look.
+- cards displayed with information and buttons for different series and items.
 - Social media links and a drawing page for interactive content.
 
 ## How to Use
