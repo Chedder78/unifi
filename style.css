@@ -14,6 +14,62 @@
     --animation-transform: 0.4s;
 }
 
+/* Declare custom fonts using @font-face */
+@font-face {
+    font-family: 'Black Empire';
+    src: url('./fonts/Black Empire.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Client';
+    src: url('./fonts/Client.html') format('truetype');
+}
+
+@font-face {
+    font-family: 'Dark Roast';
+    src: url('./fonts/Dark Roast.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Gecko Lunch';
+    src: url('./fonts/Gecko Lunch.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Hawaii Killer';
+    src: url('./fonts/Hawaii Killer (v1.2).ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Melted Monster';
+    src: url('./fonts/Melted Monster.ttf') format('truetype');
+}
+
+/* Apply fonts to specific elements */
+body {
+    font-family: 'Black Empire', sans-serif;
+}
+
+h1 {
+    font-family: 'Dark Roast', serif;
+}
+
+h2 {
+    font-family: 'Gecko Lunch', cursive;
+}
+
+h3 {
+    font-family: 'Hawaii Killer', sans-serif;
+}
+
+p {
+    font-family: 'Melted Monster', sans-serif;
+}
+
+button {
+    font-family: 'Client', sans-serif;
+}
+
 /* General Styles */
 
     @font-face {
